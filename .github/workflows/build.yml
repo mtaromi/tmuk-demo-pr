@@ -3,13 +3,13 @@
 
 name: Build and Test
 
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} made some changes for the demo 
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: '*'
 
 jobs:
   build:
