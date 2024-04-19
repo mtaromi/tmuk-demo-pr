@@ -3,10 +3,6 @@
 //Author: Masoumeh
 //Data: 2024-04-18
 //Hi I am new to coding!
-<<<<<<< HEAD
-
-=======
->>>>>>> featureY
 
 namespace Prime.Services
 {
