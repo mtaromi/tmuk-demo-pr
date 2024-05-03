@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: Build and Test
+name: Generate Artefacts
 
 run-name: ${{ github.actor }} made some changes for the demo 
 
@@ -38,4 +38,11 @@ jobs:
 
     - name: Code Coverage Report - HTML
       run: reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:Html
-  
+
+    - name: Upload Artefacts
+#      run: mkdir -p $GITHUB_WORKSPACE/coverage/
+    
+      uses: actions/upload-artifact@v4
+      with:
+        name: code-coverage-report
+        path: coverlet/reports
