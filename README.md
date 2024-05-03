@@ -7,3 +7,5 @@ Demo project for Lecture 7: Pull Request and Code Review
 ![Test Code Coverage](https://img.shields.io/badge/Code%20Coverage-83%25-success?style=flat)
 
 
+To trigger the CI!
+
