@@ -42,13 +42,23 @@ jobs:
         output: both
         thresholds: '60 80'
 
-
+# Upload the report (code-coverage-results.md) ready for download
     - name: Upload Artefacts
       uses: actions/upload-artifact@v4
       with:
         name: code-coverage-results
         path: code-coverage-results.md
-        
+
+# Upload the report (code-coverage-results.md) ready for download
+    - name: Add Code Coverage Report
+      run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add code-coverage-results.md
+          git commit -m "Add code coverage report to the repo" code-coverage-results.md
+          git push   
+
+          
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
       if: github.event_name == 'push'
