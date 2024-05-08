@@ -1,4 +1,4 @@
-![Code Coverage](https://img.shields.io/badge/Code%20Coverage-92%25-success?style=flat)
+![Code Coverage](https://img.shields.io/badge/Code%20Coverage-32%25-success?style=flat)
 
 Package | Line Rate | Branch Rate | Health
 -------- | --------- | ----------- | ------
