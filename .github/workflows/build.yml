@@ -54,8 +54,8 @@ jobs:
       run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add code-coverage-results.md
-          git commit -m "Add code coverage report to the repo" code-coverage-results.md
+          #git add code-coverage-results.md
+          git commit -a "Add code coverage report to the repo" code-coverage-results.md
           git push   
 
           
