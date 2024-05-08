@@ -50,10 +50,12 @@ jobs:
         name: code-coverage-results
         path: code-coverage-results.md
 
-    - name: Add Coverage PR Comment
-      uses: marocchino/sticky-pull-request-comment@v2
-      if: github.event_name == 'pull-requests'
-      with:
-        recreate: true
-        path: code-coverage-results.md
+# Add the report (code-coverage-results.md) to the repo
+    - name: Add Coverage Report to Repo
+      run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add code-coverage-results.md
+          git commit -m "Add code coverage report" code-coverage-results.md
+          git push
         
