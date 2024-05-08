@@ -44,7 +44,7 @@ jobs:
 
     - name: Print Action Outputs
       run: |
-        echo "Coverage Badge: ${{ steps.coverage.outputs.coverage-badge }}"
+        echo "Coverage Badge: ${{ steps.coverage.outputs}}"
         echo "Coverage URL: ${{ steps.coverage.outputs.coverage-url }}"
 
         
