@@ -29,16 +29,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
 
-   #Delete old report
-    - name: Delete Existing File
-      run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          rm code-coverage-results.md || true
-          git rm code-coverage-results.md || true
-          git commit -m "Delete old report" code-coverage-results.md || true
-          git push
-          
     - name: Code Coverage Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       id: coverage
@@ -60,19 +50,9 @@ jobs:
         name: code-coverage-results
         path: code-coverage-results.md
 
-# Add the report (code-coverage-results.md) to the repo
-    - name: Add Code Coverage Report
-      run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add code-coverage-results.md
-          git commit -m "Add code coverage report to the repo" code-coverage-results.md
-          git push   
-
-          
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
-      if: github.event_name == 'push'
+      if: github.event_name == 'pull-requests'
       with:
         recreate: true
         path: code-coverage-results.md
