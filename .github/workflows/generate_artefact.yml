@@ -3,7 +3,7 @@
 
 name: Generate Artefacts
 
-run-name: ${{ github.actor }} made some changes for the demo 
+#run-name: ${{ github.actor }} made some changes for the demo 
 
 on:
   push:
