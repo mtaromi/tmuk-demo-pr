@@ -52,10 +52,7 @@ jobs:
 
 # Add the report (code-coverage-results.md) to the repo
     - name: Add Coverage Report to Repo
-      run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add code-coverage-results.md
-          git commit -m "Add code coverage report" code-coverage-results.md
-          git push
+      uses: EndBug/add-and-commit@v9 
+      with:
+        add: code-coverage-results.md --force
         
