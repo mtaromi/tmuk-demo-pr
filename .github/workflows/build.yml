@@ -35,8 +35,8 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           rm code-coverage-results.md || true
-          git rm code-coverage-results.md
-          git commit -m "Delete old report" code-coverage-results.md
+          git rm code-coverage-results.md || true
+          git commit -m "Delete old report" code-coverage-results.md || true
           git push
           
     - name: Code Coverage Report
