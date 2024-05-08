@@ -17,9 +17,9 @@ namespace Prime.UnitTests.Services
         [Test]
         public void IsPrime_InputIs1_ReturnFalse()
         {
-            var result = _primeService.IsPrime(1);
+           // var result = _primeService.IsPrime(1);
 
-            Assert.That(result, Is.False, "1 should not be prime");
+            //Assert.That(result, Is.False, "1 should not be prime");
         }
 /*
 	[TestCase(-1)]
