@@ -28,6 +28,17 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+   #Delete old report
+    - name: Delete Existing File
+      run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          rm code-coverage-results.md || true
+          git rm code-coverage-results.md
+          git commit -m "Delete old report" code-coverage-results.md
+          git push
+          
     - name: Code Coverage Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       id: coverage
@@ -49,13 +60,13 @@ jobs:
         name: code-coverage-results
         path: code-coverage-results.md
 
-# Upload the report (code-coverage-results.md) ready for download
+# Add the report (code-coverage-results.md) to the repo
     - name: Add Code Coverage Report
       run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          #git add code-coverage-results.md
-          git commit -a -m "Add code coverage report to the repo" code-coverage-results.md
+          git add code-coverage-results.md
+          git commit -m "Add code coverage report to the repo" code-coverage-results.md
           git push   
 
           
