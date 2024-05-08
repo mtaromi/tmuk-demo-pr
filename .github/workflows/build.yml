@@ -42,6 +42,12 @@ jobs:
         output: both
         thresholds: '60 80'
 
+    - name: Print Action Outputs
+      run: |
+        echo "Coverage Badge: ${{ steps.coverage.outputs.coverage-badge }}"
+        echo "Coverage URL: ${{ steps.coverage.outputs.coverage-url }}"
+
+        
     - name: Update README with Code Coverage Badge
       run: echo "[![Code Coverage](${{ steps.coverage.outputs.coverage-badge }})](${{ steps.coverage.outputs.coverage-url }})" > README.md
 
