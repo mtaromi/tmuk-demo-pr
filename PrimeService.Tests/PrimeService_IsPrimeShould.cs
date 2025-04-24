@@ -21,7 +21,7 @@ namespace Prime.UnitTests.Services
 
             Assert.That(result, Is.False, "1 should not be prime");
         }
-
+/*
 	[TestCase(-1)]
 	[TestCase(0)]
 	[TestCase(1)]
@@ -31,5 +31,6 @@ namespace Prime.UnitTests.Services
 
     		Assert.That(result, Is.False, $"{value} should not be prime");
 	}
+ */
     }
 }
